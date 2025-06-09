@@ -1,0 +1,225 @@
+{
+  "info": {
+    "name": "Wikipedia API Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search Wikipedia - Valid Query",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=Quantum mechanics",
+          "protocol": "https",
+          "host": [
+            "en",
+            "wikipedia",
+            "org"
+          ],
+          "path": [
+            "w",
+            "api.php"
+          ],
+          "query": [
+            {
+              "key": "action",
+              "value": "query"
+            },
+            {
+              "key": "list",
+              "value": "search"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            },
+            {
+              "key": "srsearch",
+              "value": "Quantum mechanics"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const json = pm.response.json();",
+              "pm.test(\"At least one search result\", function () {",
+              "    pm.expect(json.query.search).to.be.an('array').that.is.not.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Summary - Valid Article",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://en.wikipedia.org/api/rest_v1/page/summary/Quantum_mechanics",
+          "protocol": "https",
+          "host": [
+            "en",
+            "wikipedia",
+            "org"
+          ],
+          "path": [
+            "api",
+            "rest_v1",
+            "page",
+            "summary",
+            "Quantum_mechanics"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const json = pm.response.json();",
+              "pm.test(\"Summary has extract field\", function () {",
+              "    pm.expect(json).to.have.property('extract').that.is.a('string');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Summary - Invalid Article (404)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://en.wikipedia.org/api/rest_v1/page/summary/This_Article_Does_Not_Exist_123456",
+          "protocol": "https",
+          "host": [
+            "en",
+            "wikipedia",
+            "org"
+          ],
+          "path": [
+            "api",
+            "rest_v1",
+            "page",
+            "summary",
+            "This_Article_Does_Not_Exist_123456"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search Wikipedia - Invalid Parameter",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch==+=+",
+          "protocol": "https",
+          "host": [
+            "en",
+            "wikipedia",
+            "org"
+          ],
+          "path": [
+            "w",
+            "api.php"
+          ],
+          "query": [
+            {
+              "key": "action",
+              "value": "query"
+            },
+            {
+              "key": "list",
+              "value": "search"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            },
+            {
+              "key": "srsearch",
+              "value": "==+=+"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Summary - Valid Article with Specific Title",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://en.wikipedia.org/api/rest_v1/page/summary/Data_science",
+          "protocol": "https",
+          "host": [
+            "en",
+            "wikipedia",
+            "org"
+          ],
+          "path": [
+            "api",
+            "rest_v1",
+            "page",
+            "summary",
+            "Data_science"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const json = pm.response.json();",
+              "pm.test(\"Summary has extract field\", function () {",
+              "    pm.expect(json).to.have.property('extract').that.is.a('string');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}

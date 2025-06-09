@@ -1,0 +1,44 @@
+name: API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Newman and reporters
+        run: |
+          npm install -g newman newman-reporter-htmlextra
+
+      - name: Run API tests
+        run: |
+          newman run postman/wikipedia_collection.json \
+            -e postman/wikipedia_environment.json \
+            -r cli,html,junit \
+            --reporter-html-export reports/html/report.html \
+            --reporter-junit-export reports/junit/report.xml
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-report
+          path: reports/html/report.html
+
+      - name: Upload JUnit report
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-report
+          path: reports/junit/report.xml
