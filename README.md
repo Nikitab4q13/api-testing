@@ -27,4 +27,4 @@ api-testing-framework/
    cd scripts
    ./run-tests.sh
    ```
-4. Смотреть отчёты в папках `reports/html` и `reports/junit`
+4. Смотреть отчёты в папках `reports/html` и `reports/junit`# 1
