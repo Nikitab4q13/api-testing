@@ -16,7 +16,7 @@ npm install -g newman newman-reporter-htmlextra
 Перейдите в консоли в папку, где лежит скрипт, например: cd /c/Users/Александер/Desktop/api/scripts
 
 Скрипт для запуска тестов:
-./run-tests.sh
+./run.sh
 Скрипт автоматически запустит тесты Postman и создаст отчёты в папке reports/.
 
 Чтобы зафиксировать и отправить изменения после тестов в GitHub:
