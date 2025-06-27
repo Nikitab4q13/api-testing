@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Wikipedia API Test Collection" tests="5" time="1.033">
-  <testsuite name="Search Wikipedia - Valid Query" id="91913760-aa7f-407d-80d8-86ac18e45d7a" timestamp="2025-06-27T08:44:23.566Z" tests="2" failures="0" errors="0" time="0.602">
-    <testcase name="Status code is 200" time="0.602" classname="SearchWikipediaValidQuery"/>
-    <testcase name="At least one search result" time="0.602" classname="SearchWikipediaValidQuery"/>
+<testsuites name="Wikipedia API Test Collection" tests="5" time="0.929">
+  <testsuite name="Search Wikipedia - Valid Query" id="642ce258-a1a0-43d5-b9c1-3b905b9c7e3e" timestamp="2025-06-27T08:45:11.991Z" tests="2" failures="0" errors="0" time="0.531">
+    <testcase name="Status code is 200" time="0.531" classname="SearchWikipediaValidQuery"/>
+    <testcase name="At least one search result" time="0.531" classname="SearchWikipediaValidQuery"/>
   </testsuite>
-  <testsuite name="Summary - Valid Article" id="b9a79c62-ef0b-4bce-93d0-8a9bcea9aa22" timestamp="2025-06-27T08:44:23.566Z" tests="2" failures="0" errors="0" time="0.069">
-    <testcase name="Status code is 200" time="0.069" classname="SummaryValidArticle"/>
-    <testcase name="Summary has extract field" time="0.069" classname="SummaryValidArticle"/>
+  <testsuite name="Summary - Valid Article" id="d4fc8a81-cc7e-42e3-81cf-29bacbcf4550" timestamp="2025-06-27T08:45:11.991Z" tests="2" failures="0" errors="0" time="0.063">
+    <testcase name="Status code is 200" time="0.063" classname="SummaryValidArticle"/>
+    <testcase name="Summary has extract field" time="0.063" classname="SummaryValidArticle"/>
   </testsuite>
-  <testsuite name="Summary - Invalid Article (404)" id="98235759-31b0-4911-a104-0137f32069cc" timestamp="2025-06-27T08:44:23.566Z" tests="1" failures="0" errors="0" time="0.062">
-    <testcase name="Status code is 404" time="0.062" classname="SummaryInvalidArticle404"/>
+  <testsuite name="Summary - Invalid Article (404)" id="723a3198-c96c-489b-b19e-7aa57f60b73e" timestamp="2025-06-27T08:45:11.991Z" tests="1" failures="0" errors="0" time="0.063">
+    <testcase name="Status code is 404" time="0.063" classname="SummaryInvalidArticle404"/>
   </testsuite>
-  <testsuite name="Search Wikipedia - Invalid Parameter" id="0ac40f46-d22b-4410-aa64-c46826426901" timestamp="2025-06-27T08:44:23.566Z" tests="1" failures="0" errors="0" time="0.235">
-    <testcase name="Status code is 200" time="0.235" classname="SearchWikipediaInvalidParameter"/>
+  <testsuite name="Search Wikipedia - Invalid Parameter" id="fc5fc97b-2165-498d-8b56-548aae757bc7" timestamp="2025-06-27T08:45:11.991Z" tests="1" failures="0" errors="0" time="0.208">
+    <testcase name="Status code is 200" time="0.208" classname="SearchWikipediaInvalidParameter"/>
   </testsuite>
-  <testsuite name="Summary - Valid Article with Specific Title" id="c379d21e-a36c-44f1-b9fe-bd1285d5ed89" timestamp="2025-06-27T08:44:23.566Z" tests="2" failures="0" errors="0" time="0.065">
-    <testcase name="Status code is 200" time="0.065" classname="SummaryValidArticleWithSpecificTitle"/>
-    <testcase name="Summary has extract field" time="0.065" classname="SummaryValidArticleWithSpecificTitle"/>
+  <testsuite name="Summary - Valid Article with Specific Title" id="aff8f1b7-39d1-4f4d-bf0b-ff9322f5d251" timestamp="2025-06-27T08:45:11.991Z" tests="2" failures="0" errors="0" time="0.064">
+    <testcase name="Status code is 200" time="0.064" classname="SummaryValidArticleWithSpecificTitle"/>
+    <testcase name="Summary has extract field" time="0.064" classname="SummaryValidArticleWithSpecificTitle"/>
   </testsuite>
 </testsuites>
