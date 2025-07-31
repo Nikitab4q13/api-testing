@@ -20,9 +20,6 @@ npm install -g newman newman-reporter-htmlextra
 Скрипт автоматически запустит тесты Postman и создаст отчёты в папке reports/.
 
 Чтобы зафиксировать и отправить изменения после тестов в GitHub:
-Токен:
-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
-
 
 git add .
 git commit -m "Новая версия"
